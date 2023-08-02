@@ -70,6 +70,8 @@ function Tabs() {
           tabBarIcon: ({ color }) => <Image source={ic_my} />,
         }}
       />
+      <Tab.Screen name='회원가입' component={SignupScreen1} options={{ 
+        title: '회원가입' }}/>
     </Tab.Navigator>
   );
 }

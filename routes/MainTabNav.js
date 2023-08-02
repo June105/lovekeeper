@@ -1,13 +1,14 @@
 import * as React from 'react';
 import { StyleSheet, Image } from 'react-native';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+import { NavigationContainer } from '@react-navigation/native';
+
 import main from '../screens/main';
-import notice from '../screens/notice';
 import forbidden from '../screens/forbidden';
 import chat from '../screens/chat';
 import diary from '../screens/diary';
 import mypage from '../screens/mypage';
-import { NavigationContainer } from '@react-navigation/native';
+import SignupScreen1 from '../screens/SignupScreen1';
 
 const Tab = createMaterialBottomTabNavigator();
 

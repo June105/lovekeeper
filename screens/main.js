@@ -8,7 +8,10 @@ const mainImage = require('../assets/images/bg-블러원.png');
 const letterImage = require('../assets/images/img-편지.png');
 const btnImage = require('../assets/images/btn-화해요청하기.png');
 
-export default function Main({navigation}) {
+const NAME_1 = '돌돌';
+const NAME_2 = '미미';
+
+export default function Main({navigation}) {  
   return (
     <SafeAreaProvider initialMetrics={initialWindowMetrics} style={styles.container}>
 
@@ -23,7 +26,7 @@ export default function Main({navigation}) {
       <View style={styles.body}>
         <View style={styles.bodyText}>
           <Text>우리가 사랑한 지 <Text style={{fontWeight: 500, fontSize: 20}}>100</Text>일 째</Text>
-          <Text>돌돌<Text style={{color: '#FF6565'}}>♥</Text>미미</Text>
+          <Text>{NAME_1}<Text style={{color: '#FF6565'}}>♥</Text>{NAME_2}</Text>
         </View>
         <View>
           <ImageBackground source={mainImage} style={{height:375, width:375}}>
