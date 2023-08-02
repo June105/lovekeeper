@@ -10,6 +10,8 @@ import forbidden from '../screens/forbidden';
 import chat from '../screens/chat';
 import diary from '../screens/diary';
 import mypage from '../screens/mypage';
+import SignupScreen1 from '../screens/SignupScreen1';
+import SignupScreen2 from '../screens/SignupScreen2';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -77,6 +79,8 @@ function Home() {
     <Stack.Navigator initialRouteName="main" screenOptions={{ headerShown: false }}>
       <Stack.Screen name="main" component={main} />
       <Stack.Screen name='notice' component={notice} />
+      <Stack.Screen name="Signup1" component={SignupScreen1} />
+      <Stack.Screen name="Signup2" component={SignupScreen2} />
     </Stack.Navigator>
   );
 }
