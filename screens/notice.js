@@ -7,7 +7,7 @@ const backArrow = require('../assets/images/ic-back.png');
 const alarmImage = require('../assets/images/ic-alarm.png');
 
 
-export default function Notice({ navigation }) {
+function Notice({ navigation }) {
     return(
         <SafeAreaProvider initialMetrics={initialWindowMetrics} style={styles.container}>
 
@@ -17,12 +17,12 @@ export default function Notice({ navigation }) {
                 <Image source={backArrow} style={{width:24, height: 24, }} />
             </TouchableOpacity>
             <Image source={headerImage} style={{width:129.68, height: 40,}}></Image>  
-            <Image source={alarmImage} style={{width: 24, height: 24, tintColor: 'transparent'}}></Image> 
+            <Image source={alarmImage} style={{width: 24, height: 24, }}></Image> 
           </View>
 
           <View style={styles.body}>
             <View style={styles.appNotice}>
-                  <Text style={styles.whiteColor}>
+                  <Text style={styles.appNoticeText}>
                     [Notice] 러브키퍼 최신 버전이 출시됐어요! 지금 바로 앱스토어에서 확인해보세요
                   </Text>
             </View>
@@ -97,25 +97,28 @@ const styles = StyleSheet.create({
       backgroundColor: '#fff',
     },
     head: {
-      flex: 1,
-      marginTop: 20,
+      flex: 0.9,
+      marginTop: 10,
       marginHorizontal: 20,
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'space-between', 
     },
     body: {
-      flex: 9,
+      flex: 7,
     },
     appNotice: {
       flex:0.05,
       backgroundColor: '#767676',
-      paddingHorizontal: 20,
+      paddingHorizontal: 10,
       paddingVertical: 20,
       overflow: 'hidden',
       alignItems: 'center',
       justifyContent: 'center',
-
+    },
+    appNoticeText: {
+      fontSize: 16,
+      color: '#fff',
     },
     scrollArea:{
       flex:5,
@@ -147,5 +150,7 @@ const styles = StyleSheet.create({
       borderColor: '#FF859B',
     }
 })
+
+export default Notice;
 
 

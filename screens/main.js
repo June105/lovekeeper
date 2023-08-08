@@ -11,7 +11,7 @@ const btnImage = require('../assets/images/btn-화해요청하기.png');
 const NAME_1 = '돌돌';
 const NAME_2 = '미미';
 
-export default function Main({navigation}) {  
+function Main({navigation}) {  
   return (
     <SafeAreaProvider initialMetrics={initialWindowMetrics} style={styles.container}>
 
@@ -82,3 +82,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+
+export default Main;
