@@ -1,7 +1,8 @@
-import React, {useState, useEffect} from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Pressable, Image, ScrollView, Alert, Keyboard} from 'react-native';
+import React, {useState, } from 'react';
+import { StyleSheet, Text, View, TouchableOpacity, Pressable, Image, ScrollView, FlatList, Button, Alert, Keyboard} from 'react-native';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import { TextInput } from 'react-native-paper';
+import moment from 'moment';
 import { SafeAreaProvider, initialWindowMetrics } from 'react-native-safe-area-context';
 
 // images
@@ -12,10 +13,6 @@ const heartImage = require('../assets/images/img-하트.png');
 const writeIcon = require('../assets/images/ic-write.png');
 const deleteIcon = require('../assets/images/ic-delete.png');
 const writeBtn = require('../assets/images/btn-write.png');
-
-// const RegisterRule =()=> (
-//   
-// )
 
 // const appearKeyboard = () => {
 //   const[KeyboardStatus, setKeyboardStatus] = useState('');
@@ -40,6 +37,10 @@ const writeBtn = require('../assets/images/btn-write.png');
 //   )
 // };
 
+const startDate = moment("2022-08-13");
+const today = moment();
+const dateTimeAgo = today.diff(startDate, 'days');
+
 const createDeleteButton = () => {
   Alert.alert('삭제', '등록된 규칙을 삭제하시겠습니까?', 
     [
@@ -49,8 +50,48 @@ const createDeleteButton = () => {
     );
   };
 
+
+//   return (
+//     <View style={styles.section1}>
+//       <View style={styles.section2}>
+//         <Image source={heartImage} style={{ width: 32, height: 32, marginRight: 10 }} />
+//         <View style={styles.ruleSection}>
+//           <View style={styles.wordSection}>
+//             <Text style={styles.rule}>{text}</Text>
+//             <Text style={styles.datePassed}>{date}</Text>
+//           </View>
+//         </View>
+//         <View style={styles.iconSection}>
+//           <TouchableOpacity>
+//             <Image source={writeIcon} style={styles.icon}></Image>
+//           </TouchableOpacity>
+//           <TouchableOpacity onPress={handleDelete}>
+//             <Image source={deleteIcon} style={styles.icon}></Image>
+//           </TouchableOpacity>
+//         </View>
+//       </View>
+//       <View style={styles.line}></View>
+//     </View>
+//   );
+// };
+
   
-function Dairy({navigation}) {
+function Diary({navigation}) {
+
+const [text, setText] = useState('');
+const [notes, setNotes] = useState([]);
+
+  const onCreate = () => {
+    if (text.trim () !== ''){
+      setNotes([...notes, text]);
+      setText('');
+    }
+  };
+
+  const onRemove = (index) => {
+    const newNotes = notes.filter((_, i) => i !== index);
+    setNotes(newNotes);
+  }
 
   const showKeyboard = () =>{
     Keyboard.dismiss();
@@ -72,71 +113,55 @@ function Dairy({navigation}) {
       </View>
 
       <View style={styles.rules2diary}>
-        <Pressable style={styles.pressedBtn}>
+        <Pressable style={styles.pressedBtn} onPress>
           <Text style={styles.whiteText}>규칙</Text>
         </Pressable>
-        <Pressable style={styles.unpressedBtn}>
+        <Pressable style={styles.unpressedBtn} onPress>
           <Text style={styles.greyText}>일기</Text>
         </Pressable>
       </View>
 
       <View style={styles.body}>
-        <ScrollView>
-          <View style={styles.section1}>
-            <View style={styles.section2}>
-              <Image source={heartImage} style={{width: 32, height: 32, marginRight: 10,}}/>
-              <View style={styles.ruleSection}>
-                <View style={styles.wordSection}>
-                  <Text style={styles.rule}>거짓말하지 않기</Text>
-                  <Text style={styles.datePassed}>1일 전</Text>
+
+          <FlatList
+            data={notes}
+            renderItem={({item, index}) => (
+              <View style={styles.section1}>
+                <View style={styles.section2}>
+                  <Image source={heartImage} style={{width: 32, height: 32, marginRight: 10,}}/>
+                  <View style={styles.ruleSection}>
+                    <View style={styles.wordSection}>
+                      <Text style={styles.rule}>{text}</Text>
+                      <Text style={styles.datePassed}>1일 전</Text>
+                    </View>
+                  </View>
+                  <View style={styles.iconSection}>
+                    <TouchableOpacity>
+                      <Image source={writeIcon} style={styles.icon}></Image>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => onRemove(index)}>
+                      <Image source={deleteIcon} style={styles.icon}></Image>
+                    </TouchableOpacity>
+                  </View>  
                 </View>
-              </View>
-              <View style={styles.iconSection}>
-                <TouchableOpacity>
-                  <Image source={writeIcon} style={styles.icon}></Image>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={createDeleteButton}>
-                  <Image source={deleteIcon} style={styles.icon}></Image>
-                </TouchableOpacity>
-              </View>  
+              <View style={styles.line}></View>
             </View>
-            <View style={styles.line}></View>
-          </View>
-          <View style={styles.section1}>
-            <View style={styles.section2}>
-              <Image source={heartImage} style={{width: 32, height: 32, marginRight: 10,}}/>
-              <View style={styles.ruleSection}>
-                <View style={styles.wordSection}>
-                  <Text style={styles.rule}>바보라고 부르지 않기</Text>
-                  <Text style={styles.datePassed}>1일 전</Text>
-                </View>
-              </View>
-              <View style={styles.iconSection}>
-                <TouchableOpacity>
-                  <Image source={writeIcon} style={styles.icon}></Image>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={createDeleteButton}>
-                  <Image source={deleteIcon} style={styles.icon}></Image>
-                </TouchableOpacity>
-              </View>  
-            </View>
-            <View style={styles.line}></View>
-          </View> 
-        </ScrollView>
+          )}
+            keyExtractor={(item, index) => index.toString()}
+          />
       </View>
 
       <TouchableWithoutFeedback onPress={showKeyboard}>
         {/* <Image source={writeBtn} objectFit={'cover'} style={styles.registerBtn}/> */}
         <TextInput
+          value={text}
+          onChange={event => setText(event.nativeEvent.text)}
           placeholder='여기를 터치하세요'>
         </TextInput>
+        <Button title='저장하기' onPress={onCreate}/>
       </TouchableWithoutFeedback>
     </SafeAreaProvider>    
   );
-}
-
-function deleteForbidden() {
-
 }
 
 
@@ -253,4 +278,4 @@ const styles = StyleSheet.create({
 });
 
 
-export default Dairy;
+export default Diary;

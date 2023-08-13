@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import moment from 'moment';
+import 'moment/locale/ko';
 import { Text, ScrollView, View, StyleSheet, Image, TouchableOpacity } from "react-native";
 import { SafeAreaProvider, initialWindowMetrics } from "react-native-safe-area-context";
 
@@ -6,14 +8,24 @@ const headerImage = require('../assets/images/logo-알림.png');
 const backArrow = require('../assets/images/ic-back.png');
 const alarmImage = require('../assets/images/ic-alarm.png');
 
+const jsonData = {
+  appNotice: '[Notice] 러브키퍼 최신 버전이 출시됐어요! 지금 바로 앱스토어에서 확인해보세요',
+  user1Namme: '돌돌',
+  user2Name: '미미',
+}
+
+const notiTimeAgo = moment().startOf('minute').fromNow();
 
 function Notice({ navigation }) {
-    return(
+
+  const [mainData, setMainData] = useState(jsonData);
+
+  return(
         <SafeAreaProvider initialMetrics={initialWindowMetrics} style={styles.container}>
 
           <View style={styles.head}>
             <TouchableOpacity activeOpacity={0.7} onPress={() => 
-                navigation.navigate('main')}>
+                navigation.navigate('Main')}>
                 <Image source={backArrow} style={{width:24, height: 24, }} />
             </TouchableOpacity>
             <Image source={headerImage} style={{width:129.68, height: 40,}}></Image>  
@@ -23,64 +35,64 @@ function Notice({ navigation }) {
           <View style={styles.body}>
             <View style={styles.appNotice}>
                   <Text style={styles.appNoticeText}>
-                    [Notice] 러브키퍼 최신 버전이 출시됐어요! 지금 바로 앱스토어에서 확인해보세요
+                    {mainData.appNotice}
                   </Text>
             </View>
             <ScrollView style={styles.scrollArea}>
               <TouchableOpacity style={styles.newNotice} activeOpacity={0.7}>
                   <Text style={{ fontSize: 16 }}>
-                    <Text style={styles.whiteColor}>미미</Text>님이 화해 요청을 보냈습니다.
+                    <Text style={styles.whiteColor}>{mainData.user2Name}</Text>님이 화해 요청을 보냈습니다.
                   </Text>
                   <Text style={{ color:'#393939', fontSize: 14, }}>
-                    2초 전
+                    {notiTimeAgo}
                   </Text>
               </TouchableOpacity>
               <TouchableOpacity style={styles.notice} activeOpacity={0.7}>
                 <Text style={{ fontSize: 16 }}>
-                  <Text style={styles.empColor}>미미</Text>님이 화해 요청을 보냈습니다.
+                  <Text style={styles.empColor}>{mainData.user2Name}</Text>님이 화해 요청을 보냈습니다.
                 </Text>
                 <Text style={{ color:'#393939', fontSize: 14, }}>
-                  2초 전
+                  {notiTimeAgo}
                 </Text>
               </TouchableOpacity>
               <TouchableOpacity style={styles.notice} activeOpacity={0.7}>
                 <Text style={{ fontSize: 16 }}>
-                  <Text style={styles.empColor}>미미</Text>님이 화해 요청을 보냈습니다.
+                  <Text style={styles.empColor}>{mainData.user2Name}</Text>님이 화해 요청을 보냈습니다.
                 </Text>
                 <Text style={{ color:'#393939', fontSize: 14, }}>
-                  2초 전
+                  {notiTimeAgo}
                 </Text>
               </TouchableOpacity>
               <TouchableOpacity style={styles.notice} activeOpacity={0.7}>
                 <Text style={{ fontSize: 16 }}>
-                  <Text style={styles.empColor}>미미</Text>님이 화해 요청을 보냈습니다.
+                  <Text style={styles.empColor}>{mainData.user2Name}</Text>님이 화해 요청을 보냈습니다.
                 </Text>
                 <Text style={{ color:'#393939', fontSize: 14, }}>
-                  2초 전
+                  {notiTimeAgo}
                 </Text>
               </TouchableOpacity>
               <TouchableOpacity style={styles.notice} activeOpacity={0.7}>
                 <Text style={{ fontSize: 16 }}>
-                  <Text style={styles.empColor}>미미</Text>님이 화해 요청을 보냈습니다.
+                  <Text style={styles.empColor}>{mainData.user2Name}</Text>님이 화해 요청을 보냈습니다.
                 </Text>
                 <Text style={{ color:'#393939', fontSize: 14, }}>
-                  2초 전
+                  {notiTimeAgo}
                 </Text>
               </TouchableOpacity>
               <TouchableOpacity style={styles.notice} activeOpacity={0.7}>
                 <Text style={{ fontSize: 16 }}>
-                  <Text style={styles.empColor}>미미</Text>님이 화해 요청을 보냈습니다.
+                  <Text style={styles.empColor}>{mainData.user2Name}</Text>님이 화해 요청을 보냈습니다.
                 </Text>
                 <Text style={{ color:'#393939', fontSize: 14, }}>
-                  2초 전
+                  {notiTimeAgo}
                 </Text>
               </TouchableOpacity>
               <TouchableOpacity style={styles.notice} activeOpacity={0.7}>
                 <Text style={{ fontSize: 16 }}>
-                  <Text style={styles.empColor}>미미</Text>님이 화해 요청을 보냈습니다.
+                  <Text style={styles.empColor}>{mainData.user2Name}</Text>님이 화해 요청을 보냈습니다.
                 </Text>
                 <Text style={{ color:'#393939', fontSize: 14, }}>
-                  2초 전
+                  {notiTimeAgo}
                 </Text>
               </TouchableOpacity>
             </ScrollView>

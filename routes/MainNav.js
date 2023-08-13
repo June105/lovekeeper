@@ -4,16 +4,19 @@ import { createMaterialBottomTabNavigator } from '@react-navigation/material-bot
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import main from '../screens/main';
-import notice from '../screens/notice';
-import forbidden from '../screens/forbidden';
-import chat from '../screens/chat';
-import diary from '../screens/diary';
-import mypage from '../screens/mypage';
+import Main from '../screens/Main';
+import Notice from '../screens/Notice';
+import Forbidden from '../screens/Forbidden';
+import Chat from '../screens/Chat';
+import Diary from '../screens/Diary';
+import Mypage from '../screens/Mypage';
 import SignupScreen1 from '../screens/SignupScreen1';
 import SignupScreen2 from '../screens/SignupScreen2';
+import Mypage_sent from '../screens/Mypage_sent';
+import Mypage_received from '../screens/Mypage_received';
 
 const Tab = createMaterialBottomTabNavigator();
+const Stack = createStackNavigator();
 
 const ic_forbidden = require('../assets/images/ic-금칙어.png');
 const ic_chat = require('../assets/images/ic-채팅.png');
@@ -23,7 +26,7 @@ const ic_my = require('../assets/images/ic-MY.png');
 function Tabs() {
   return (
     <Tab.Navigator
-      initialRouteName="Home"
+      initialRouteName="Main"
       activeColor="#393939"
       tabBarActiveBackgroundColor="transparent"
       inactiveColor="#ffffff"
@@ -40,7 +43,7 @@ function Tabs() {
       />
       <Tab.Screen
         name="금칙어"
-        component={forbidden}
+        component={Forbidden}
         options={{
           title: '금칙어',
           tabBarIcon: ({ color }) => <Image source={ic_forbidden} />,
@@ -48,7 +51,7 @@ function Tabs() {
       />
       <Tab.Screen
         name="채팅"
-        component={chat}
+        component={Chat}
         options={{
           title: '채팅',
           tabBarIcon: ({ color }) => <Image source={ic_chat} />,
@@ -56,7 +59,7 @@ function Tabs() {
       />
       <Tab.Screen
         name="다이어리"
-        component={diary}
+        component={Diary}
         options={{
           title: '다이어리',
           tabBarIcon: ({ color }) => <Image source={ic_diary} />,
@@ -64,7 +67,7 @@ function Tabs() {
       />
       <Tab.Screen
         name="MY"
-        component={mypage}
+        component={Mypage}
         options={{
           title: 'MY',
           tabBarIcon: ({ color }) => <Image source={ic_my} />,
@@ -78,16 +81,16 @@ function Tabs() {
 
 function Home() {
   return (
-    <Stack.Navigator initialRouteName="main" screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="main" component={main} />
-      <Stack.Screen name='notice' component={notice} />
+    <Stack.Navigator initialRouteName="Main" screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="Main" component={Main} />
+      <Stack.Screen name='Notice' component={Notice} />
       <Stack.Screen name="Signup1" component={SignupScreen1} />
       <Stack.Screen name="Signup2" component={SignupScreen2} />
+      <Stack.Screen name="Mypage_sent" component={Mypage_sent} />
+      <Stack.Screen name="Mypage_received" component={Mypage_received} />
     </Stack.Navigator>
   );
 }
-
-const Stack = createStackNavigator();
 
 export default function App() {
   return (
