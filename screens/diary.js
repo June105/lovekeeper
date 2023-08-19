@@ -184,7 +184,6 @@ const styles = StyleSheet.create({
   rules2diary: {
     flexDirection: 'row',
     marginHorizontal: 20,
-
   },
   pressedBtn: {
     borderWidth: 1,

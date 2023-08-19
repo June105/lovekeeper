@@ -30,7 +30,11 @@ export default function Mypage({navigation}) {
                 <Image source={backArrow} style={{width:24, height: 24, }} />
             </TouchableOpacity>
             <Image source={headerImage} style={{width:129.68, height: 40,}}></Image>  
-            <Image source={settingIcon} style={{width: 24, height: 24, }}></Image> 
+            <TouchableOpacity activeOpacity={0.7} onPress={() =>
+                alert('계정 페이지로 이동')}>
+              <Image source={settingIcon} style={{width: 24, height: 24, }}></Image> 
+            </TouchableOpacity>
+            
           </View>
 
           <View style={styles.body}>

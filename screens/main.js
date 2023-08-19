@@ -12,10 +12,7 @@ const btnImage = require('../assets/images/btn-화해요청하기.png');
 
 const user1 = {
   name: '돌돌',
-}
-
-const user2 = {
-  name: '미미',
+  partner: '미미'
 }
 
 const startDate = moment("2022-08-13");
@@ -38,7 +35,7 @@ function Main({navigation}) {
       <View style={styles.body}>
         <View style={styles.bodyText}>
           <Text>우리가 사랑한 지 <Text style={{fontWeight: 500, fontSize: 20}}>{dateTimeAgo}</Text>일 째</Text>
-          <Text>{user1.name}<Text style={{color: '#FF6565'}}>♥</Text>{user2.name}</Text>
+          <Text>{user1.name}<Text style={{color: '#FF6565'}}>♥</Text>{user1.partner}</Text>
         </View>
         <View>
           <ImageBackground source={mainImage} style={{height:375, width:375}}>
@@ -46,7 +43,7 @@ function Main({navigation}) {
               <Image source={letterImage} style={{height:375, width:375, alignItems: 'center', justifyContent: 'center'}}></Image>
             </View>
             <View style={styles.btn}>
-              <TouchableOpacity activeOpacity={0.7}>
+              <TouchableOpacity activeOpacity={0.7} onPress={() => navigation.navigate('Request')}>
                 <Image source={btnImage}  />
               </TouchableOpacity>
             </View>  

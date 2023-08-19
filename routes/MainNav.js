@@ -14,6 +14,7 @@ import SignupScreen1 from '../screens/SignupScreen1';
 import SignupScreen2 from '../screens/SignupScreen2';
 import Mypage_sent from '../screens/Mypage_sent';
 import Mypage_received from '../screens/Mypage_received';
+import Request from '../screens/Request';
 
 const Tab = createMaterialBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -88,6 +89,7 @@ function Home() {
       <Stack.Screen name="Signup2" component={SignupScreen2} />
       <Stack.Screen name="Mypage_sent" component={Mypage_sent} />
       <Stack.Screen name="Mypage_received" component={Mypage_received} />
+      <Stack.Screen name="Request" component={Request} />
     </Stack.Navigator>
   );
 }

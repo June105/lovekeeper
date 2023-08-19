@@ -10,8 +10,8 @@ const alarmImage = require('../assets/images/ic-alarm.png');
 
 const jsonData = {
   appNotice: '[Notice] 러브키퍼 최신 버전이 출시됐어요! 지금 바로 앱스토어에서 확인해보세요',
-  user1Namme: '돌돌',
-  user2Name: '미미',
+  user: '돌돌',
+  partner: '미미',
 }
 
 const notiTimeAgo = moment().startOf('minute').fromNow();
