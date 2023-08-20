@@ -36,7 +36,8 @@ function SignupScreen1({ navigation }) {
         </View>
         <View style={styles.other}>
           <Text style={styles.text}>상대방 초대 코드</Text>
-          <TextInput style={styles.code} />
+          <TextInput style={styles.codeText} />
+          <View style={{ ...styles.code, height: 10 }}></View>
         </View>
         <TouchableOpacity onPress={() => navigation.navigate("Signup2")}>
           <View style={styles.button}>
@@ -89,6 +90,10 @@ const styles = StyleSheet.create({
   text: {
     color: "#767676",
     marginBottom: -10,
+  },
+  codeText: {
+    fontSize: 20,
+    fontWeight: 400,
   },
   code: {
     width: 282,

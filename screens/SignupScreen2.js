@@ -15,7 +15,7 @@ import RNPickerSelect from "react-native-picker-select";
 
 import Profile from "../assets/images/profile.png";
 
-function SignupScreen2() {
+function SignupScreen2({ navigation }) {
   var today = new Date();
   var year = today.getFullYear();
   var month = ("0" + (today.getMonth() + 1)).slice(-2);
@@ -54,7 +54,7 @@ function SignupScreen2() {
         </View>
         <View style={{ ...styles.other, marginTop: 30 }}>
           <Text style={styles.text}>이름</Text>
-          <TextInput style={styles.code} />
+          <TextInput style={{ ...styles.code, marginTop: 5, fontSize: 16 }} />
         </View>
         <View style={{ ...styles.other, marginTop: 30 }}>
           <Text style={styles.text}>생년월일</Text>
@@ -69,7 +69,7 @@ function SignupScreen2() {
           />
         </View>
         <View style={{ ...styles.other, marginTop: 30 }}>
-          <Text style={{ ...styles.text, marginBottom: 5 }}>혈액형</Text>
+          <Text style={{ ...styles.text, marginBottom: 10 }}>혈액형</Text>
           <RNPickerSelect
             style={{ height: 21, width: 260 }}
             placeholder={{ label: placeholder }}
@@ -82,9 +82,9 @@ function SignupScreen2() {
               { label: "AB형", value: "AB형" },
             ]}
           />
-          <View style={styles.code} />
+          <View style={{ ...styles.code, height: 10 }} />
         </View>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate("Main")}>
           <View style={{ ...styles.button, marginTop: 35 }}>
             <Text style={styles.buttonText}>연결하기</Text>
           </View>
@@ -111,7 +111,6 @@ const styles = StyleSheet.create({
     width: 100,
     height: 100,
     borderWidth: 1,
-    borderStyle: "solid",
     borderColor: "#393939",
     borderRadius: 100,
   },
