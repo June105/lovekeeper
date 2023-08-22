@@ -27,32 +27,33 @@ const writeIcon = require("../assets/images/ic-write.png");
 const deleteIcon = require("../assets/images/ic-delete.png");
 const writeBtn = require("../assets/images/btn-write.png");
 
- const appearKeyboard = () => {
-   const[KeyboardStatus, setKeyboardStatus] = useState('');
+//  const appearKeyboard = () => {
+//    const[KeyboardStatus, setKeyboardStatus] = useState('');
 
-   useEffect(() => {
-     const showKeyboard = Keyboard.addListener('keyboardDidShow', () => { setKeyboardStatus('Keyboard Shown')});
-     const hideKeyboard = Keyboard.addListener('keyboardDidHide', () => { setKeyboardStatus('Keyboard Hidden')});
+//    useEffect(() => {
+//      const showKeyboard = Keyboard.addListener('keyboardDidShow', () => { setKeyboardStatus('Keyboard Shown')});
+//      const hideKeyboard = Keyboard.addListener('keyboardDidHide', () => { setKeyboardStatus('Keyboard Hidden')});
 
-     return ()=> {
-       showKeyboard.remove();
-       hideKeyboard.remove();
-     };
-   }, []);
+//      return ()=> {
+//        showKeyboard.remove();
+//        hideKeyboard.remove();
+//      };
+//    }, []);
 
-   return (
-     <View style={styles.keyboardContainer}>
-       <TextInput style={styles.keyboardInput}
-         placeholder='여기 입력하세요'
-         onSubmitEditing={Keyboard.dismiss}>
-       </TextInput>
-     </View>
-   )
- };
+//    return (
+//      <View style={styles.keyboardContainer}>
+//        <TextInput style={styles.keyboardInput}
+//          placeholder='여기 입력하세요'
+//          onSubmitEditing={Keyboard.dismiss}>
+//        </TextInput>
+//      </View>
+//    )
+//  };
 
 const startDate = moment("2022-08-13");
 const today = moment();
-const dateTimeAgo = today.diff(startDate, "days");
+const notiTimeAgo = moment().startOf('minute').fromNow();
+
 
 const createDeleteButton = () => {
   Alert.alert("삭제", "등록된 규칙을 삭제하시겠습니까?", [
@@ -65,29 +66,6 @@ const createDeleteButton = () => {
   ]);
 };
 
-//    return (
-//      <View style={styles.section1}>
-//        <View style={styles.section2}>
-//          <Image source={heartImage} style={{ width: 32, height: 32, marginRight: 10 }} />
-//          <View style={styles.ruleSection}>
-//            <View style={styles.wordSection}>
-//              <Text style={styles.rule}>{text}</Text>
-//              <Text style={styles.datePassed}>{date}</Text>
-//            </View>
-//          </View>
-//          <View style={styles.iconSection}>
-//            <TouchableOpacity>
-//              <Image source={writeIcon} style={styles.icon}></Image>
-//            </TouchableOpacity>
-//            <TouchableOpacity onPress={handleDelete}>
-//              <Image source={deleteIcon} style={styles.icon}></Image>
-//            </TouchableOpacity>
-//          </View>
-//        </View>
-//        <View style={styles.line}></View>
-//      </View>
-//    );
-//  };
 
 function Diary({ navigation }) {
   const [text, setText] = useState("");
@@ -106,8 +84,8 @@ function Diary({ navigation }) {
   };
 
   const showKeyboard = () => {
-    Keyboard.dismiss();
     Keyboard.show();
+    Keyboard.dismiss();
   };
 
   return (
@@ -147,7 +125,7 @@ function Diary({ navigation }) {
           <View style={styles.ruleSection}>
             <View style={styles.wordSection}>
               <Text style={styles.rule}>거짓말 하지 않기</Text>
-              <Text style={styles.datePassed}>{dateTimeAgo}</Text>
+              <Text style={styles.datePassed}>{notiTimeAgo}</Text>
             </View>
           </View>
           <View style={styles.iconSection}>
@@ -168,10 +146,10 @@ function Diary({ navigation }) {
         {/* <Image source={writeBtn} objectFit={'cover'} style={styles.registerBtn}/> */}
         <TextInput
           value={text}
-          onChange={(event) => setText(event.nativeEvent.text)}
-          placeholder="여기를 터치하세요"
+          onChange={(e) => setText(e.nativeEvent.text)}
+          placeholder="입력하기"
         ></TextInput>
-        <Button title="저장하기" onPress={onCreate} />
+        {/* <Button title="저장하기" onPress={onCreate} /> */}
       </TouchableWithoutFeedback>
     </SafeAreaProvider>
   );

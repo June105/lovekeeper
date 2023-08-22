@@ -6,6 +6,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 
 import Main from "../screens/Main";
 import Notice from "../screens/Notice";
+import Request from "../screens/Request";
 import Forbidden from "../screens/Forbidden";
 import Chat from "../screens/Chat";
 import Diary from "../screens/Diary";
@@ -95,6 +96,7 @@ function Home() {
     >
       <Stack.Screen name="Main" component={Main} />
       <Stack.Screen name="Notice" component={Notice} />
+      <Stack.Screen name="Request" component={Request} />
       <Stack.Screen name="Signup1" component={SignupScreen1} />
       <Stack.Screen name="Signup2" component={SignupScreen2} />
       <Stack.Screen name="Mypage_sent" component={Mypage_sent} />

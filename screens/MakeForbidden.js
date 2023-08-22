@@ -49,6 +49,8 @@ export default function Main({ navigation }) {
           <Image source={alarmImage} style={{ width: 24, height: 24 }} />
         </TouchableOpacity>
       </View>
+
+      {/* 스크롤뷰로 바꾸는 건 어떨까요? -비모 */}
       <View style={{ ...styles.layout, height: 80 }}>
         <Text style={styles.text}>금칙어</Text>
         <View style={{ ...styles.input, height: 32 }}>
