@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
       backgroundColor: '#fff',
     },
     head: {
-      flex: 0.9,
+      flex: 1,
       marginTop: 10,
       marginHorizontal: 20,
       flexDirection: 'row',
@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
       justifyContent: 'space-between', 
     },
     body: {
-      flex: 7,
+      flex: 6.5,
     },
     appNotice: {
       flex:0.05,

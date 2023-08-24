@@ -31,7 +31,7 @@ export default function Main({ navigation }) {
         <View style={{ ...styles.head, justifyContent: "flex-start" }}>
           <TouchableOpacity
             activeOpacity={0.7}
-            onPress={() => navigation.navigate("Main")}
+            onPress={() => navigation.navigate("Mypage")}
           >
             <Image source={backArrow} style={{ width: 24, height: 24 }} />
           </TouchableOpacity>
@@ -43,7 +43,7 @@ export default function Main({ navigation }) {
           />
         </View>
       </View>
-      <View>
+      <View style={styles.body}>
         <TouchableOpacity style={styles.setting}>
           <View style={{ alignItems: "flex-start" }}>
             <Image
@@ -126,15 +126,21 @@ export default function Main({ navigation }) {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     backgroundColor: "#fff",
-    justifyContent: "center",
-    alignItems: "center",
   },
   head: {
     flex: 1,
-    width: 375,
-    height: 40,
+    // width: 375,
+    // height: 40,
+    marginVertical: 10,
+    marginHorizontal: 5,
     flexDirection: "row",
+    alignItems: "center",
+  },
+  body:{
+    flex: 6,
+    justifyContent: "center",
     alignItems: "center",
   },
   setting: {
