@@ -88,6 +88,7 @@ export default function Mypage({ navigation }) {
               flexDirection: "row",
               alignItems: "center",
               justifyContent: "space-between",
+              marginVertical: 5,
             }}
           >
             <Text style={styles.postAreaTitle}>보낸 편지함</Text>
@@ -109,6 +110,7 @@ export default function Mypage({ navigation }) {
               flexDirection: "row",
               alignItems: "center",
               justifyContent: "space-between",
+              marginVertical: 5,
             }}
           >
             <Text style={styles.postAreaTitle}>받은 편지함</Text>
@@ -174,8 +176,8 @@ const styles = StyleSheet.create({
     borderRadius: 100,
     alignSelf: "flex-end",
     justifyContent: "flex-end",
-    paddingHorizontal: 10,
-    paddingVertical: 5,
+    paddingHorizontal: 8,
+    paddingVertical: 3,
   },
   seeAll: {
     fontSize: 14,
@@ -183,7 +185,7 @@ const styles = StyleSheet.create({
   },
   postArea: {
     marginHorizontal: 10,
-    marginVertical: 30,
+    marginVertical: 20,
   },
   postAreaTitle: {
     fontSize: 18,
