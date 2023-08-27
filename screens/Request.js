@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { SafeAreaProvider, initialWindowMetrics } from 'react-native-safe-area-context';
-import { StyleSheet, Text, TextInput, View, Image, TouchableOpacity, ScrollView, Pressable } from 'react-native';
+import { StyleSheet, Text, TextInput, View, Image, TouchableOpacity, ScrollView } from 'react-native';
 
 const backArrow = require('../assets/images/ic-back.png');
 const headerImage = require('../assets/images/logo-lovekeeper.png');
@@ -23,10 +23,10 @@ function Request({navigation}) {
 
   let lockImg = unlockIcon;
   if (lock === false){
-    lockImg = lockIcon;
+    lockImg = unlockIcon;
   }
   else {
-    lockImg = unlockIcon;
+    lockImg = lockIcon;
   }
 
   return (
@@ -49,9 +49,9 @@ function Request({navigation}) {
             <View>
               <View style={styles.inputArea}>
                 <Text style={styles.question}>{text.input1}</Text>
-                <Pressable activeOpacity={0.7} onPress={()=> setLock(!false)}>
+                <TouchableOpacity activeOpacity={0.7} onPress={()=> setLock(!false)}>
                   <Image source={lockIcon} />
-                </Pressable>
+                </TouchableOpacity>
               </View>
               <View style={styles.line} />
             </View>
@@ -98,12 +98,12 @@ function Request({navigation}) {
             <TouchableOpacity onPress={() => alert('작성 완료하시겠습니까?')}>
               <Image source={writeBtn} />
             </TouchableOpacity>
-            <Pressable 
-              onPress={() => alert('화면 이동')}>
+            <TouchableOpacity 
+              onPress={() => navigation.navigate('Ask2')}>
               <Text style={styles.link}>
                 내 맘대로 쓸래요
               </Text>
-            </Pressable>
+            </TouchableOpacity>
           </View>
       </View>
 

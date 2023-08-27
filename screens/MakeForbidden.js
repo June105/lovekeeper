@@ -101,29 +101,17 @@ export default function Main({ navigation }) {
 
 const styles = StyleSheet.create({
   container: {
-    flext: 1,
     backgroundColor: "#fff",
-    // justifyContent: "center",
-    // alignItems: "center",
+    justifyContent: "center",
+    alignItems: "center",
   },
-  // head: {
-  //   flex: 1,
-  //   width: 375,
-  //   flexDirection: "row",
-  //   alignItems: "center",
-  //   justifyContent: "space-between",
-  //   marginBottom: -30,
-  // },
   head: {
     flex: 1,
-    marginTop: 10,
-    marginHorizontal: 20,
+    width: 375,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-  },
-  body: {
-    flex: 7,
+    marginBottom: -30,
   },
   layout: {
     width: 343,

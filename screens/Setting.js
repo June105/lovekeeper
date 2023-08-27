@@ -54,9 +54,9 @@ export default function Main({ navigation }) {
           <View>
             <Text style={styles.text}>계정</Text>
           </View>
-          <View style={{ width: 260, alignItems: "flex-end" }}>
+          <TouchableOpacity onPress={()=> navigation.navigate('Account')} style={{ width: 260, alignItems: "flex-end" }}>
             <Image source={frontArrow} style={{ width: 20, height: 20 }} />
-          </View>
+          </TouchableOpacity>
         </TouchableOpacity>
         <TouchableOpacity style={{ ...styles.setting, marginTop: 64 }}>
           <View style={{ alignItems: "flex-start" }}>
@@ -131,15 +131,15 @@ const styles = StyleSheet.create({
   },
   head: {
     flex: 1,
-    // width: 375,
-    // height: 40,
+    width: 375,
+    height: 40,
     marginVertical: 10,
     marginHorizontal: 5,
     flexDirection: "row",
     alignItems: "center",
   },
   body:{
-    flex: 6,
+    flex: 7,
     justifyContent: "center",
     alignItems: "center",
   },

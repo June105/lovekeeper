@@ -34,8 +34,8 @@ function Main({navigation}) {
 
       <View style={styles.body}>
         <View style={styles.bodyText}>
-          <Text>우리가 사랑한 지 <Text style={{fontWeight: 500, fontSize: 20}}>{dateTimeAgo}</Text>일 째</Text>
-          <Text>{user1.name}<Text style={{color: '#FF6565'}}>♥</Text>{user1.partner}</Text>
+          <Text style={{fontSize: 16}}>우리가 사랑한 지 <Text style={{fontWeight: 500, fontSize: 20}}>{dateTimeAgo}</Text> 일 째</Text>
+          <Text style={{fontSize: 16}}>{user1.name}<Text style={{color: '#FF6565'}}>♥</Text>{user1.partner}</Text>
         </View>
         <View>
           <ImageBackground source={mainImage} style={{height:375, width:375}}>
