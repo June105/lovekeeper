@@ -74,7 +74,7 @@ export default function Mypage({ navigation }) {
           {/* 편집 페이지로 이동 */}
           <TouchableOpacity
             activeOpacity={0.7}
-            onPress={() => alert("페이지 이동")}
+            onPress={() => navigation.navigate("MyPageEdit")}
             style={styles.editButton}
           >
             <Text>편집</Text>
@@ -135,15 +135,15 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
   },
   head: {
-    flex: 0.9,
+    flex: 1,
     marginTop: 10,
     marginHorizontal: 20,
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between', 
   },
   body: {
-    flex: 7,
+    flex: 6,
     marginHorizontal: 20,
     marginVertical: 10,
   },
@@ -157,7 +157,6 @@ const styles = StyleSheet.create({
     width: 100,
     height: 100,
     borderWidth: 1,
-    borderStyle: "solid",
     borderColor: "#393939",
     borderRadius: 100,
   },

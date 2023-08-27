@@ -12,6 +12,10 @@ import {
 } from "react-native";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import RNPickerSelect from "react-native-picker-select";
+import {
+  SafeAreaProvider,
+  initialWindowMetrics,
+} from "react-native-safe-area-context";
 
 const headerImage = require("../assets/images/logo-MY.png");
 const backArrow = require("../assets/images/ic-back.png");
@@ -48,8 +52,10 @@ function SignupScreen2({ navigation }) {
   const placeholder = "혈액형을 선택해주세요";
 
   return (
-    <SafeAreaView style={styles.background}>
-      <View style={styles.container}>
+    <SafeAreaProvider 
+      initialMetrics={initialWindowMetrics}
+      style={styles.container}>
+
         <View style={styles.head}>
           <TouchableOpacity
             activeOpacity={0.7}
@@ -65,69 +71,78 @@ function SignupScreen2({ navigation }) {
             <Image source={settingIcon} style={{ width: 24, height: 24 }} />
           </TouchableOpacity>
         </View>
-        <View style={styles.picture}>
-          <TouchableOpacity>
-            <Image source={Profile} style={styles.profile} />
+
+        <View style={styles.body}>
+          <View style={styles.picture}>
+            <TouchableOpacity>
+              <Image source={Profile} style={styles.profile} />
+            </TouchableOpacity>
+          </View>
+          <View style={{ ...styles.other, marginTop: 30 }}>
+            <Text style={styles.text}>이름</Text>
+            <TextInput style={{ ...styles.code, marginTop: 5, fontSize: 16 }} />
+          </View>
+          <View style={{ ...styles.other, marginTop: 30 }}>
+            <Text style={styles.text}>생년월일</Text>
+            <Pressable onPress={showDatePicker} style={styles.code}>
+              <Text style={styles.date}>{birthday}</Text>
+            </Pressable>
+            <DateTimePickerModal
+              isVisible={isDatePickerVisible}
+              mode="date"
+              onConfirm={handleConfirm}
+              onCancel={hideDatePicker}
+            />
+          </View>
+          <View style={{ ...styles.other, marginTop: 30 }}>
+            <Text style={{ ...styles.text, marginBottom: 10 }}>혈액형</Text>
+            <RNPickerSelect
+              style={{ height: 21, width: 260 }}
+              placeholder={{ label: placeholder }}
+              onValueChange={(value) => console.log(value)}
+              itemStyle={{ ...styles.blood, fontSize: 30, fontWeight: 400 }}
+              items={[
+                { label: "A형", value: "A형" },
+                { label: "B형", value: "B형" },
+                { label: "O형", value: "O형" },
+                { label: "AB형", value: "AB형" },
+              ]}
+            />
+            <View style={{ ...styles.code, height: 10 }} />
+          </View>
+          <TouchableOpacity onPress={() => navigation.navigate("Mypage")}>
+            <View style={{ ...styles.button, marginTop: 35 }}>
+              <Text style={styles.buttonText}>편집하기</Text>
+            </View>
           </TouchableOpacity>
         </View>
-        <View style={{ ...styles.other, marginTop: 30 }}>
-          <Text style={styles.text}>이름</Text>
-          <TextInput style={{ ...styles.code, marginTop: 5, fontSize: 16 }} />
-        </View>
-        <View style={{ ...styles.other, marginTop: 30 }}>
-          <Text style={styles.text}>생년월일</Text>
-          <Pressable onPress={showDatePicker} style={styles.code}>
-            <Text style={styles.date}>{birthday}</Text>
-          </Pressable>
-          <DateTimePickerModal
-            isVisible={isDatePickerVisible}
-            mode="date"
-            onConfirm={handleConfirm}
-            onCancel={hideDatePicker}
-          />
-        </View>
-        <View style={{ ...styles.other, marginTop: 30 }}>
-          <Text style={{ ...styles.text, marginBottom: 10 }}>혈액형</Text>
-          <RNPickerSelect
-            style={{ height: 21, width: 260 }}
-            placeholder={{ label: placeholder }}
-            onValueChange={(value) => console.log(value)}
-            itemStyle={{ ...styles.blood, fontSize: 30, fontWeight: 400 }}
-            items={[
-              { label: "A형", value: "A형" },
-              { label: "B형", value: "B형" },
-              { label: "O형", value: "O형" },
-              { label: "AB형", value: "AB형" },
-            ]}
-          />
-          <View style={{ ...styles.code, height: 10 }} />
-        </View>
-        <TouchableOpacity onPress={() => navigation.navigate("Mypage")}>
-          <View style={{ ...styles.button, marginTop: 35 }}>
-            <Text style={styles.buttonText}>편집하기</Text>
-          </View>
-        </TouchableOpacity>
-      </View>
-    </SafeAreaView>
+
+
+    </SafeAreaProvider>
   );
 }
 
 export default SignupScreen2;
 
 const styles = StyleSheet.create({
-  background: {
+  container: {
+    flex: 1,
     backgroundColor: "white",
   },
-  container: {
-    justifyContent: "center",
-    alignItems: "center",
-  },
   head: {
-    width: 360,
+    flex: 1,
+    // width: 360,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    marginTop: 10,
+    marginVertical: 10,
+    marginHorizontal: 20,
+  },
+  body: {
+    flex: 6,
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 20,
   },
   picture: {
     marginTop: 90,

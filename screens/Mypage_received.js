@@ -29,7 +29,7 @@ export default function Mypage_received({ navigation }) {
         {/* main과 연결이 아닌 뒤로가기로 변경 */}
         <TouchableOpacity
           activeOpacity={0.7}
-          onPress={() => navigation.navigate("Main")}
+          onPress={() => navigation.navigate("Mypage")}
         >
           <Image source={backArrow} style={{ width: 24, height: 24 }} />
         </TouchableOpacity>

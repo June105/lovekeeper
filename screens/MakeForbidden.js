@@ -50,63 +50,80 @@ export default function Main({ navigation }) {
         </TouchableOpacity>
       </View>
 
-      {/* 스크롤뷰로 바꾸는 건 어떨까요? -비모 */}
-      <View style={{ ...styles.layout, height: 80 }}>
-        <Text style={styles.text}>금칙어</Text>
-        <View style={{ ...styles.input, height: 32 }}>
-          <TextInput
-            style={{ width: 283 }}
-            maxLength={12}
-            onChangeText={onChangeText1}
-          ></TextInput>
-        </View>
-        <Text style={styles.length}>{num1}/12</Text>
+      <View style={styles.body}>
+        <ScrollView>
+          <View style={{ ...styles.layout, height: 80 }}>
+            <Text style={styles.text}>금칙어</Text>
+            <View style={{ ...styles.input, height: 32 }}>
+              <TextInput
+                style={{ width: 283 }}
+                maxLength={12}
+                onChangeText={onChangeText1}
+              ></TextInput>
+            </View>
+            <Text style={styles.length}>{num1}/12</Text>
+          </View>
+          <View style={styles.layout}>
+            <Text style={styles.text}>등록 이유</Text>
+            <View style={{ ...styles.input, height: 153 }}>
+              <TextInput
+                style={styles.inText}
+                onChangeText={onChangeText2}
+                maxLength={100}
+                multiline
+                placeholder="이 단어를 싫어하는 이유는요."
+              ></TextInput>
+            </View>
+            <Text style={styles.length} maxLength={100} multiline>
+              {num2}/100
+            </Text>
+          </View>
+          <View style={{ ...styles.layout, marginBottom: 100 }}>
+            <Text style={styles.text}>해결 방안</Text>
+            <View style={{ ...styles.input, height: 162 }}>
+              <TextInput
+                style={styles.inText}
+                onChangeText={onChangeText3}
+                multiline
+                returnKeyType="done"
+                placeholder="  이렇게 말해 주길 바라요."
+              ></TextInput>
+            </View>
+            <Text style={styles.length}>{num3}/100</Text>
+          </View>
+        </ScrollView>
+        
       </View>
-      <View style={styles.layout}>
-        <Text style={styles.text}>등록 이유</Text>
-        <View style={{ ...styles.input, height: 153 }}>
-          <TextInput
-            style={styles.inText}
-            onChangeText={onChangeText2}
-            maxLength={100}
-            multiline
-            placeholder="이 단어를 싫어하는 이유는요."
-          ></TextInput>
-        </View>
-        <Text style={styles.length} maxLength={100} multiline>
-          {num2}/100
-        </Text>
-      </View>
-      <View style={{ ...styles.layout, marginBottom: 100 }}>
-        <Text style={styles.text}>해결 방안</Text>
-        <View style={{ ...styles.input, height: 162 }}>
-          <TextInput
-            style={styles.inText}
-            onChangeText={onChangeText3}
-            multiline
-            returnKeyType="done"
-            placeholder="  이렇게 말해 주길 바라요."
-          ></TextInput>
-        </View>
-        <Text style={styles.length}>{num3}/100</Text>
-      </View>
+      
     </SafeAreaProvider>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
+    flext: 1,
     backgroundColor: "#fff",
-    justifyContent: "center",
-    alignItems: "center",
+    // justifyContent: "center",
+    // alignItems: "center",
   },
+  // head: {
+  //   flex: 1,
+  //   width: 375,
+  //   flexDirection: "row",
+  //   alignItems: "center",
+  //   justifyContent: "space-between",
+  //   marginBottom: -30,
+  // },
   head: {
     flex: 1,
-    width: 375,
+    marginTop: 10,
+    marginHorizontal: 20,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    marginBottom: -30,
+  },
+  body: {
+    flex: 7,
   },
   layout: {
     width: 343,
@@ -115,6 +132,7 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     marginBottom: 28,
     alignItems: "center",
+    alignContent: 'center',
     justifyContent: "center",
   },
   text: {

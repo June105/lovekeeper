@@ -10,8 +10,8 @@ import {
   Button,
   Alert,
   Keyboard,
+  KeyboardAvoidingView,
 } from "react-native";
-import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 import { TextInput } from "react-native-paper";
 import moment from "moment";
 import {
@@ -120,37 +120,101 @@ function Diary({ navigation }) {
 
       <View style={styles.body}>
         <View style={styles.section1}>
-        <View style={styles.section2}>
-          <Image source={heartImage} style={{ width: 32, height: 32, marginRight: 10 }} />
-          <View style={styles.ruleSection}>
-            <View style={styles.wordSection}>
-              <Text style={styles.rule}>거짓말 하지 않기</Text>
-              <Text style={styles.datePassed}>{notiTimeAgo}</Text>
+          <View style={styles.section2}>
+            <Image source={heartImage} style={{ width: 32, height: 32, marginRight: 10 }} />
+            <View style={styles.ruleSection}>
+              <View style={styles.wordSection}>
+                <Text style={styles.rule}>거짓말 하지 않기</Text>
+                <Text style={styles.datePassed}>{notiTimeAgo}</Text>
+              </View>
+            </View>
+            <View style={styles.iconSection}>
+              <TouchableOpacity>
+                <Image source={writeIcon} style={styles.icon}></Image>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={createDeleteButton}>
+                <Image source={deleteIcon} style={styles.icon}></Image>
+              </TouchableOpacity>
             </View>
           </View>
-          <View style={styles.iconSection}>
-            <TouchableOpacity>
-              <Image source={writeIcon} style={styles.icon}></Image>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={createDeleteButton}>
-              <Image source={deleteIcon} style={styles.icon}></Image>
-            </TouchableOpacity>
-          </View>
+          <View style={styles.line}></View>
         </View>
-        <View style={styles.line}></View>
-      </View>
-        
+        <View style={styles.section1}>
+          <View style={styles.section2}>
+            <Image source={heartImage} style={{ width: 32, height: 32, marginRight: 10 }} />
+            <View style={styles.ruleSection}>
+              <View style={styles.wordSection}>
+                <Text style={styles.rule}>바보라고 부르지 않기</Text>
+                <Text style={styles.datePassed}>{notiTimeAgo}</Text>
+              </View>
+            </View>
+            <View style={styles.iconSection}>
+              <TouchableOpacity>
+                <Image source={writeIcon} style={styles.icon}></Image>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={createDeleteButton}>
+                <Image source={deleteIcon} style={styles.icon}></Image>
+              </TouchableOpacity>
+            </View>
+          </View>
+          <View style={styles.line}></View>
+        </View>
+        <View style={styles.section1}>
+          <View style={styles.section2}>
+            <Image source={heartImage} style={{ width: 32, height: 32, marginRight: 10 }} />
+            <View style={styles.ruleSection}>
+              <View style={styles.wordSection}>
+                <Text style={styles.rule}>자기 전에 사랑한다고 말하기</Text>
+                <Text style={styles.datePassed}>{notiTimeAgo}</Text>
+              </View>
+            </View>
+            <View style={styles.iconSection}>
+              <TouchableOpacity>
+                <Image source={writeIcon} style={styles.icon}></Image>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={createDeleteButton}>
+                <Image source={deleteIcon} style={styles.icon}></Image>
+              </TouchableOpacity>
+            </View>
+          </View>
+          <View style={styles.line}></View>
+          
+        </View>
+        <View style={styles.section1}>
+          <View style={styles.section2}>
+            <Image source={heartImage} style={{ width: 32, height: 32, marginRight: 10 }} />
+            <View style={styles.ruleSection}>
+              <View style={styles.wordSection}>
+                <Text style={styles.rule}>화난다고 잠수 타지 말기</Text>
+                <Text style={styles.datePassed}>{notiTimeAgo}</Text>
+              </View>
+            </View>
+            <View style={styles.iconSection}>
+              <TouchableOpacity>
+                <Image source={writeIcon} style={styles.icon}></Image>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={createDeleteButton}>
+                <Image source={deleteIcon} style={styles.icon}></Image>
+              </TouchableOpacity>
+            </View>
+          </View>
+          <View style={styles.line}></View>
+        </View>
       </View>
 
-      <TouchableWithoutFeedback onPress={showKeyboard}>
+      <KeyboardAvoidingView 
+        behavior="padding" enabled >
         {/* <Image source={writeBtn} objectFit={'cover'} style={styles.registerBtn}/> */}
         <TextInput
+          style={styles.keyboardInput}
           value={text}
           onChange={(e) => setText(e.nativeEvent.text)}
           placeholder="입력하기"
+          returnKeyType="done"
+
         ></TextInput>
         {/* <Button title="저장하기" onPress={onCreate} /> */}
-      </TouchableWithoutFeedback>
+      </KeyboardAvoidingView>
     </SafeAreaProvider>
   );
 }
@@ -161,15 +225,15 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
   },
   head: {
-    flex: 1.2,
+    flex: 1,
     marginTop: 10,
     marginHorizontal: 20,
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between', 
   },
   body: {
-    flex: 7,
+    flex: 6,
   },
   rules2diary: {
     flexDirection: "row",
@@ -199,7 +263,7 @@ const styles = StyleSheet.create({
 
   section1: {
     marginVertical: 5,
-    marginHorizontal: 20,
+    marginHorizontal: 10,
   },
   section2: {
     flexDirection: "row",
@@ -259,8 +323,10 @@ const styles = StyleSheet.create({
      marginBottom: 20,
    },
    keyboardInput: {
-     height: 16,
+     height: 20,
+     paddingVertical: 10,
      backgroundColor: '#fff',
+     borderTopColor: '#D9D9D9',
    }
 });
 

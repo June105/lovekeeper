@@ -48,110 +48,128 @@ export default function Main({ navigation }) {
           <Image source={alarmImage} style={{ width: 24, height: 24 }} />
         </TouchableOpacity>
       </View>
-      <ScrollView style={{ height: 400 }}>
-        <View style={styles.line}>
-          <Text style={styles.text}>ㄱ</Text>
-        </View>
-        <View style={styles.list}>
-          <Text style={styles.forbiddenText}>고구마</Text>
-          <TouchableOpacity onPress={() => deleteForbidden()}>
-            <Image
-              source={deleteForbidden1}
-              style={{ width: 16, height: 16 }}
-            />
-          </TouchableOpacity>
-        </View>
-        <View style={styles.line}>
-          <Text style={styles.text}>ㄴ</Text>
-        </View>
-        <View style={styles.list}>
-          <Text style={styles.forbiddenText}>나무늘보</Text>
-          <TouchableOpacity onPress={() => deleteForbidden()}>
-            <Image
-              source={deleteForbidden1}
-              style={{ width: 16, height: 16 }}
-            />
-          </TouchableOpacity>
-        </View>
-        <View style={styles.line}>
-          <Text style={styles.text}>ㄷ</Text>
-        </View>
-        <View style={styles.list}>
-          <Text style={styles.forbiddenText}>당나귀</Text>
-          <TouchableOpacity onPress={() => deleteForbidden()}>
-            <Image
-              source={deleteForbidden1}
-              style={{ width: 16, height: 16 }}
-            />
-          </TouchableOpacity>
-        </View>
-        <View style={styles.line}>
-          <Text style={styles.text}>ㄹ</Text>
-        </View>
-        <View style={styles.list}>
-          <Text style={styles.forbiddenText}>라면</Text>
-          <TouchableOpacity onPress={() => deleteForbidden()}>
-            <Image
-              source={deleteForbidden1}
-              style={{ width: 16, height: 16 }}
-            />
-          </TouchableOpacity>
-        </View>
-        <View style={styles.line}>
-          <Text style={styles.text}>ㅁ</Text>
-        </View>
-        <View style={styles.list}>
-          <Text style={styles.forbiddenText}>마기꾼</Text>
-          <TouchableOpacity onPress={() => deleteForbidden()}>
-            <Image
-              source={deleteForbidden1}
-              style={{ width: 16, height: 16 }}
-            />
-          </TouchableOpacity>
-        </View>
-        <View style={styles.list}>
-          <Text style={styles.forbiddenText}>마귀꾼</Text>
-          <TouchableOpacity onPress={() => deleteForbidden()}>
-            <Image
-              source={deleteForbidden1}
-              style={{ width: 16, height: 16 }}
-            />
-          </TouchableOpacity>
-        </View>
-        <View style={styles.list}>
-          <Text style={styles.forbiddenText}>마귀</Text>
-          <TouchableOpacity onPress={() => deleteForbidden()}>
-            <Image
-              source={deleteForbidden1}
-              style={{ width: 16, height: 16 }}
-            />
-          </TouchableOpacity>
-        </View>
-      </ScrollView>
-      <View style={{ width: 345, alignItems: "flex-end" }}>
-        <TouchableOpacity onPress={() => navigation.navigate("MakeForbidden")}>
-          <View style={styles.edit}>
-            <Image source={editImage} />
+
+      <View style={styles.body}>
+        <ScrollView style={{ height: 400 }}>
+          <View style={styles.line}>
+            <Text style={styles.text}>ㄱ</Text>
           </View>
-        </TouchableOpacity>
+          <View style={styles.list}>
+            <Text style={styles.forbiddenText}>고구마</Text>
+            <TouchableOpacity onPress={() => deleteForbidden()}>
+              <Image
+                source={deleteForbidden1}
+                style={{ width: 16, height: 16 }}
+              />
+            </TouchableOpacity>
+          </View>
+          <View style={styles.line}>
+            <Text style={styles.text}>ㄴ</Text>
+          </View>
+          <View style={styles.list}>
+            <Text style={styles.forbiddenText}>나무늘보</Text>
+            <TouchableOpacity onPress={() => deleteForbidden()}>
+              <Image
+                source={deleteForbidden1}
+                style={{ width: 16, height: 16 }}
+              />
+            </TouchableOpacity>
+          </View>
+          <View style={styles.line}>
+            <Text style={styles.text}>ㄷ</Text>
+          </View>
+          <View style={styles.list}>
+            <Text style={styles.forbiddenText}>당나귀</Text>
+            <TouchableOpacity onPress={() => deleteForbidden()}>
+              <Image
+                source={deleteForbidden1}
+                style={{ width: 16, height: 16 }}
+              />
+            </TouchableOpacity>
+          </View>
+          <View style={styles.line}>
+            <Text style={styles.text}>ㄹ</Text>
+          </View>
+          <View style={styles.list}>
+            <Text style={styles.forbiddenText}>라면</Text>
+            <TouchableOpacity onPress={() => deleteForbidden()}>
+              <Image
+                source={deleteForbidden1}
+                style={{ width: 16, height: 16 }}
+              />
+            </TouchableOpacity>
+          </View>
+          <View style={styles.line}>
+            <Text style={styles.text}>ㅁ</Text>
+          </View>
+          <View style={styles.list}>
+            <Text style={styles.forbiddenText}>마기꾼</Text>
+            <TouchableOpacity onPress={() => deleteForbidden()}>
+              <Image
+                source={deleteForbidden1}
+                style={{ width: 16, height: 16 }}
+              />
+            </TouchableOpacity>
+          </View>
+          <View style={styles.list}>
+            <Text style={styles.forbiddenText}>마귀꾼</Text>
+            <TouchableOpacity onPress={() => deleteForbidden()}>
+              <Image
+                source={deleteForbidden1}
+                style={{ width: 16, height: 16 }}
+              />
+            </TouchableOpacity>
+          </View>
+          <View style={styles.list}>
+            <Text style={styles.forbiddenText}>마귀</Text>
+            <TouchableOpacity onPress={() => deleteForbidden()}>
+              <Image
+                source={deleteForbidden1}
+                style={{ width: 16, height: 16 }}
+              />
+            </TouchableOpacity>
+          </View>
+        </ScrollView>
+        <View style={{ width: 345, alignItems: "flex-end" }}>
+          <TouchableOpacity onPress={() => navigation.navigate("MakeForbidden")}>
+            <View style={styles.edit}>
+              <Image source={editImage} />
+            </View>
+          </TouchableOpacity>
+        </View>
       </View>
+      
     </SafeAreaProvider>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     backgroundColor: "#fff",
-    justifyContent: "center",
-    alignItems: "center",
+    // justifyContent: "center",
+    // alignItems: "center",
   },
+  // head: {
+  //   flex: 1,
+  //   width: 375,
+  //   flexDirection: "row",
+  //   alignItems: "center",
+  //   justifyContent: "space-between",
+  //   marginBottom: -30,
+  // },
   head: {
     flex: 1,
-    width: 375,
+    marginTop: 10,
+    marginHorizontal: 20,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    marginBottom: -30,
+  },
+  body:{
+    flex: 7,
+    justifyContent: "center",
+    alignItems: "center",
   },
   forbidden: {
     height: 640,
