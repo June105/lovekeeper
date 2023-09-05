@@ -7,7 +7,7 @@ const backArrow = require('../assets/images/ic-back.png');
 const headerImage = require('../assets/images/logo-lovekeeper.png');
 const alarmImage = require('../assets/images/ic-alarm.png');
 const mainImage = require('../assets/images/bg-circle.png');
-const letterImage = require('../assets/images/img-letter.png');
+const letterImage = require('../assets/images/img-편지.png'); //디자인 수정(230830)으로 이미지 변경
 const btnImage = require('../assets/images/btn-ask.png');
 
 const user1 = {
